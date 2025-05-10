@@ -1,42 +1,157 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案件程序进展说明</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        .case-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .case-section h2 {
+            color: #3498db;
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .timeline {
+            margin-left: 20px;
+        }
+
+        .timeline-item {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "•";
+            color: #3498db;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -3px;
+        }
+
+        .date {
+            color: #e74c3c;
+            font-weight: 500;
+            margin-right: 10px;
+        }
+
+        .status {
+            color: #27ae60;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
 <body>
+    <div class="container">
+        <h1>关于陈某某与李某某等人民事诉讼案件程序进展的说明</h1>
+        <p class="update-date">案件程序进展说明（截至2025年5月）</p>
 
-<h1>关于陈某某与李某某等人民事诉讼案件程序进展的说明</h1>
-<p>案件程序进展说明（截至2025年5月）​​</p>
-<p>​​1.唐山市丰南区法院案件​​ <br>
+        <div class="case-section">
+            <h2>唐山市丰南区法院案件</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="date">2024年7月</span>当事人向丰南区法院提交立案申请
+                </div>
+                <div class="timeline-item">
+                    <span class="date">2024年8月</span>调解阶段中，被告李某某提出管辖权异议
+                </div>
+                <div class="timeline-item">
+                    <span class="date">2024年10月</span>丰南区法院裁定驳回起诉
+                </div>
+            </div>
+        </div>
 
-​​2024年7月​​：当事人向丰南区法院提交立案申请。<br>
+        <div class="case-section">
+            <h2>唐山市路南区法院案件</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="date">2024年7月</span>案件于路南区法院申请立案
+                </div>
+                <div class="timeline-item">
+                    <span class="date">2024年8月</span>调解程序因无法联系被告终止
+                </div>
+                <div class="timeline-item">
+                    <span class="date">2024年10月</span>路南区法院正式立案
+                </div>
+                <div class="timeline-item">
+                    <span class="date">2024年12月</span>确认无法常规联系被告
+                </div>
+                <div class="timeline-item">
+                    <span class="date">2025年2月</span>通过公告方式送达法律文书
+                </div>
+                <div class="timeline-item">
+                    <span class="date">2025年2月底</span>被告提出管辖权异议
+                </div>
+                <div class="timeline-item">
+                    <span class="date">2025年3月</span>管辖权异议上诉中（唐山中级人民法院）
+                </div>
+            </div>
+        </div>
 
-​​2024年8月​​：调解阶段中，被告李某某提出管辖权异议，主张其经常居住地不在丰南区。<br>
+        <div class="case-section">
+            <h2>北京互联网法院案件</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="status">已判决</span>周某某相关案件
+                </div>
+                <div class="timeline-item">
+                    <span class="status">上诉中</span>北京第四中级人民法院审理中
+                </div>
+            </div>
+        </div>
 
-​​2024年10月​​：丰南区法院经审查认定无管辖权，裁定驳回起诉。</p>
-
-<p>2.唐山市路南区法院案件​​ <br>
-
-​​2024年7月​​：案件于路南区法院申请立案。<br>
-
-​​2024年8月​​：调解程序因无法联系被告李某某而终止。<br>
-
-​​2024年10月​​：路南区法院正式立案。<br>
-
-​​2024年12月​​：法院确认无法通过常规方式联系被告李某某。<br>
-
-​​2024年2月​​：路南区法院依法通过公告方式向被告李某某送达法律文书。<br>
-
-​​2025年2月底​​：被告李某某提出管辖权异议，主张其经常居住地位于丰南区，申请将案件移送至丰南区法院。<br>
-
-​​2025年3月​​：管辖权异议裁定结果已上诉至唐山市中级人民法院，目前处于二审程序中。</p>
-
-<p>3.北京互联网法院案件​​ <br>
-
-针对周某某的相关案件已判决。</br>
-
-周某某提出上诉，北京第四中级人民法院审理中。</p>
-
-<p>4.叶卡捷琳堡基洛夫斯基区法院案件</br>
-
-第三方介入，重新审理。</p>
-
+        <div class="case-section">
+            <h2>叶卡捷琳堡基洛夫斯基区法院案件</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="status">重新审理</span>第三方介入
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
