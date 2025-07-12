@@ -4,94 +4,287 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>案件程序进展说明</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary: #2c5282;
+            --secondary: #38b2ac;
+            --accent: #e53e3e;
+            --light: #f8fafc;
+            --dark: #1a202c;
+            --border: #e2e8f0;
+        }
+        
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
+            color: #2d3748;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e6eeff 100%);
             margin: 0;
             padding: 20px;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 900px;
+            margin: 30px auto;
             background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
 
         h1 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
-            font-size: 24px;
-        }
-
-        .case-section {
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #3498db;
-        }
-
-        .case-section h2 {
-            color: #3498db;
-            margin-top: 0;
-            font-size: 20px;
-        }
-
-        .timeline {
-            margin-left: 20px;
-        }
-
-        .timeline-item {
-            margin-bottom: 15px;
-            padding-left: 25px;
+            color: var(--primary);
+            text-align: center;
+            padding-bottom: 15px;
+            margin-bottom: 35px;
+            font-size: 28px;
+            font-weight: 700;
             position: relative;
         }
 
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 35%;
+            right: 35%;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 3px;
+        }
+
+        .update-date {
+            text-align: center;
+            font-size: 18px;
+            margin: -20px 0 30px;
+            color: var(--dark);
+            background: rgba(56, 178, 172, 0.08);
+            padding: 8px 15px;
+            border-radius: 6px;
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .case-section {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: var(--light);
+            border-radius: 12px;
+            border-left: 4px solid;
+            position: relative;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        }
+
+        .case-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.07);
+        }
+
+        .case-section:nth-child(2) {
+            border-left-color: #4299e1;
+        }
+        .case-section:nth-child(3) {
+            border-left-color: #48bb78;
+        }
+        .case-section:nth-child(4) {
+            border-left-color: #ecc94b;
+        }
+        .case-section:nth-child(5) {
+            border-left-color: #9f7aea;
+        }
+
+        .case-section h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 21px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark);
+        }
+
+        .case-section h2 i {
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(44, 82, 130, 0.1);
+        }
+
+        .timeline {
+            margin-left: 15px;
+        }
+
+        .timeline-item {
+            margin-bottom: 22px;
+            padding-left: 35px;
+            position: relative;
+            transition: all 0.3s;
+            border-radius: 8px;
+            padding: 12px 15px 12px 40px;
+        }
+
+        .timeline-item:hover {
+            background: rgba(255,255,255,0.6);
+        }
+
         .timeline-item::before {
-            content: "•";
-            color: #3498db;
-            font-size: 24px;
+            content: "";
             position: absolute;
             left: 0;
-            top: -3px;
+            top: 14px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--border);
         }
 
         .date {
-            color: #e74c3c;
-            font-weight: 500;
-            margin-right: 10px;
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            background: rgba(44, 82, 130, 0.1);
+            font-weight: 600;
+            margin-right: 12px;
+            font-size: 14px;
+            color: var(--primary);
         }
 
         .status {
-            color: #27ae60;
-            font-weight: 500;
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin: 0 5px 3px 0;
+            font-size: 14px;
+        }
+        
+        .status-judicial {
+            background: rgba(66, 153, 225, 0.15);
+            color: #2b6cb0;
+        }
+        
+        .status-procedural {
+            background: rgba(56, 178, 172, 0.15);
+            color: #2c7a7b;
+        }
+        
+        .status-warning {
+            background: rgba(245, 158, 11, 0.15);
+            color: #b7791f;
+        }
+        
+        .status-positive {
+            background: rgba(72, 187, 120, 0.15);
+            color: #276749;
+        }
+        
+        .status-negative {
+            background: rgba(229, 62, 62, 0.15);
+            color: #c53030;
         }
 
-        @media (max-width: 600px) {
+        .highlight-box {
+            background: rgba(229, 62, 62, 0.05);
+            border: 1px dashed rgba(229, 62, 62, 0.4);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 30px;
+            color: #718096;
+            font-size: 14px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 768px) {
             .container {
-                padding: 15px;
+                padding: 25px 20px;
+                margin: 15px;
             }
+            
             h1 {
-                font-size: 20px;
+                font-size: 22px;
+            }
+            
+            .update-date {
+                font-size: 16px;
+            }
+            
+            .case-section {
+                padding: 20px 15px;
+            }
+            
+            .timeline-item {
+                padding: 10px 5px 10px 35px;
+            }
+            
+            .case-section h2 {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .timeline::before {
+                left: 8px;
+            }
+            
+            .timeline-item::before {
+                left: -2px;
+                top: 12px;
+                width: 16px;
+                height: 16px;
+            }
+            
+            h1::after {
+                left: 20%;
+                right: 20%;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>关于陈某某与李某某等人民事诉讼案件程序进展的说明</h1>
+        <h1><i class="fas fa-balance-scale"></i> 关于陈某某与李某某等人民事诉讼案件程序进展的说明</h1>
         <p class="update-date">案件程序进展说明（截至2025年6月）</p>
 
         <div class="case-section">
-            <h2>唐山市丰南区法院案件</h2>
+            <h2><i class="fas fa-landmark"></i> 唐山市丰南区法院案件</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <span class="date">2024年7月</span>当事人向丰南区法院提交立案申请
@@ -106,7 +299,7 @@
         </div>
 
         <div class="case-section">
-            <h2>唐山市路南区法院案件</h2>
+            <h2><i class="fas fa-gavel"></i> 唐山市路南区法院案件</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <span class="date">2024年7月</span>案件于路南区法院申请立案
@@ -125,7 +318,7 @@
                 </div>
                 <div class="timeline-item">
                     <span class="date">2025年2月底</span>被告李某某提出相互矛盾的管辖权异议
-                </div
+                </div>
                 <div class="timeline-item">
                     <span class="date">2025年6月</span>唐山中院驳回李某某的管辖权异议，由路南区法院继续审理。
                 </div>
@@ -133,30 +326,37 @@
         </div>
 
         <div class="case-section">
-            <h2>北京互联网法院案件</h2>
+            <h2><i class="fas fa-globe"></i> 北京互联网法院案件</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <span class="status">无法通过常规渠道给第三人李某某送达诉讼材料</span>拒绝了公告送达，怕耽误时间
+                    <span class="status status-warning">无法通过常规渠道给第三人李某某送达诉讼材料</span> 拒绝了公告送达
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i> 考虑采用替代送达方式以避免程序延误
+                    </div>
                 </div>
                 <div class="timeline-item">
-                    <span class="status">已判决</span>周某某相关案件，涉及诽谤，侮辱，编造聊天记录
+                    <span class="status status-positive">已判决</span>周某某相关案件，涉及诽谤、侮辱、编造聊天记录
                 </div>
                 <div class="timeline-item">
-                    <span class="status">周某某上诉</span>北京第四中级人民法院审理中
+                    <span class="status status-judicial">上诉中</span>北京第四中级人民法院审理周某某上诉
                 </div>
             </div>
         </div>
 
         <div class="case-section">
-            <h2>叶卡捷琳堡基洛夫斯基区法院李某某相关案件</h2>
+            <h2><i class="fas fa-globe-europe"></i> 叶卡捷琳堡基洛夫斯基区法院李某某相关案件</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <span class="status">重新审理</span>由于第三方警方介入
+                    <span class="status status-procedural">重新审理</span> 由于第三方警方介入
                 </div>
                 <div class="timeline-item">
-                    <span class="status">法庭听证会</span>第一场已结束
+                    <span class="status status-procedural">法庭听证会</span> 第一场已结束
                 </div>
             </div>
+        </div>
+        
+        <div class="footer-note">
+            本案件进展说明定期更新 | 最后更新日期：2025年7月
         </div>
     </div>
 </body>
