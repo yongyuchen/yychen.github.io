@@ -3,257 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于陈某某与李某某等人民事、刑事诉讼案件程序进展的说明</title>
+    <title>法律程序说明</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
             --primary: #2c5282;
             --secondary: #2c7a7b;
-            --accent: #c53030;
-            --light: #f7fafc;
-            --dark: #1a202c;
-            --border: #e2e8f0;
-            --positive: #276749;
-            --negative: #9b2c2c;
-            --procedural: #2b6cb0;
-            --warning: #b7791f;
+            --text-main: #2d3748;
+            --text-light: #718096;
+            --bg-color: #f0f4f8;
+            --white: #ffffff;
         }
         
-        body {
-            font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
-            line-height: 1.7;
-            color: #2d3748;
-            background-color: #f0f4f8;
+        body, html {
+            height: 100%;
             margin: 0;
-            padding: 20px;
+            font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .container {
-            max-width: 900px;
-            margin: 30px auto;
-            background: white;
-            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            background: var(--white);
+            padding: 60px 40px;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
-            border-top: 5px solid var(--primary);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 6px solid var(--primary);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .icon-wrapper {
+            margin-bottom: 30px;
+            color: var(--primary);
+            font-size: 60px;
         }
 
         h1 {
-            color: var(--dark);
-            text-align: center;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-            font-size: 26px;
-            font-weight: 700;
-            border-bottom: 2px solid var(--border);
-        }
-        
-        .update-date {
-            text-align: center;
-            font-size: 16px;
-            margin-top: -20px;
-            margin-bottom: 40px;
-            color: #718096;
-        }
-
-        .case-section {
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed var(--border);
-        }
-        .case-section:last-of-type {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .case-section h2 {
-            margin-top: 0;
-            margin-bottom: 25px;
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.5;
+            color: var(--text-main);
         }
 
-        .timeline {
-            margin-left: 20px;
-            padding-left: 30px;
-            border-left: 3px solid var(--border);
-            position: relative;
+        .divider {
+            height: 2px;
+            width: 60px;
+            background-color: #e2e8f0;
+            margin: 25px auto;
         }
 
-        .timeline-item {
-            margin-bottom: 25px;
-            position: relative;
-            padding: 5px 0;
+        p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin: 0;
+            font-weight: 500;
         }
 
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -42px;
-            top: 10px;
-            width: 18px;
-            height: 18px;
-            background: white;
-            border: 4px solid var(--secondary);
-            border-radius: 50%;
-            z-index: 1;
-        }
-        
-        .timeline-item:last-child {
-            margin-bottom: 0;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .date {
-            font-weight: 600;
-            margin-right: 15px;
-            font-size: 15px;
-            color: #4a5568;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .description {
-            font-size: 16px;
-        }
-
-        .status {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-weight: 600;
-            margin-right: 8px;
-            font-size: 14px;
-            color: white;
-        }
-        
-        .status-victory { background-color: var(--positive); }
-        .status-defeat { background-color: var(--negative); }
-        .status-procedural { background-color: var(--procedural); }
-        .status-ongoing { background-color: var(--warning); }
-
-        .evidence-box {
-            background: #f7fafc;
-            border: 1px solid var(--border);
-            padding: 15px 20px;
-            margin: 10px 0 0 0;
-            border-radius: 8px;
-            font-size: 15px;
-        }
-        
-        .evidence-box strong {
-            color: var(--dark);
-        }
-
-        .footer-note {
-            text-align: center;
-            margin-top: 40px;
-            color: #a0aec0;
-            font-size: 14px;
-        }
-
-        @media (max-width: 768px) {
+        @media (max-width: 480px) {
             .container {
-                padding: 25px 20px;
-                margin: 15px;
+                padding: 40px 20px;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            .icon-wrapper {
+                font-size: 50px;
             }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1><i class="fas fa-balance-scale"></i> 关于陈某某与李某某等人民事、刑事诉讼案件程序进展的说明</h1>
-        <p class="update-date">本说明旨在客观陈述相关案件的司法程序进展 | 最后更新日期：2025年9月1日</p>
-        
-        <div class="case-section">
-            <h2><i class="fas fa-gavel"></i> 中国境内诉讼（被告周某某）</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <span class="date">2025年4月25日</span>
-                    <span class="description"><span class="status status-victory">一审胜诉</span>北京互联网法院作出判决（(2025)京0491民初1739号）。</span>
-                    <div class="evidence-box">
-                        <strong>法院认定:</strong> 被告周某某的行为构成对原告陈某某的**侮辱**和**诽谤**，并侵害了原告的**隐私权**。判令其向原告书面道歉并赔偿精神损害抚慰金8000元，以及承担一审诉讼费。
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <span class="date">2025年8月6日</span>
-                    <span class="description"><span class="status status-victory">二审胜诉</span>经北京市第四中级人民法院调解（(2025)京04民终990号），被告周某某同意履行一审判决核心内容。</span>
-                    <div class="evidence-box">
-                        <strong>调解结果:</strong> 被告周某某向原告陈某某**书面道歉**（内容经法院审核），并**赔偿精神损害抚慰金8001元**，以及承担一审二审诉讼费。
-                    </div>
-                </div>
-                 <div class="timeline-item">
-                    <span class="date">2025年8月11日</span>
-                    <span class="description"><span class="status status-procedural">申请司法监督</span>原告就二审调解过程中，承办法官胡怀松涉嫌威胁、侮辱、强迫调解等违法行为，向北京市人民检察院第四分院提交《民事监督申请书》。</span>
-                    <div class="evidence-box">
-                        <strong>监督请求:</strong> 请求检察院对法官的程序违法行为进行调查，并对该案提出检察建议。
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="case-section">
-            <h2><i class="fas fa-landmark"></i> 中国境内诉讼（被告李某某）</h2>
-            <div class="timeline">
-                 <div class="timeline-item">
-                    <span class="date">2024年8月 - 2025年2月</span>
-                    <span class="description"><span class="status status-procedural">管辖权争议</span>被告李某某在唐山市丰南区法院和路南区法院，就其“常住地”问题，提供了完全相反的陈述以操纵司法管辖。</span>
-                    <div class="evidence-box">
-                        <strong>核心矛盾:</strong> 在丰南法院，李某某声称其**不住在丰南**，而户籍地在路南区；在路南法院，她又提交证明声称自2021年起**常住丰南**。
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <span class="date">2025年6月20日</span>
-                    <span class="description"><span class="status status-victory">程序性胜利</span>唐山市中级人民法院作出终审裁定（(2025)冀02民辖终259号），认定陈某某上诉理由成立，驳回李某某管辖权异议。</span>
-                     <div class="evidence-box">
-                        <strong>法院认定:</strong> 原审卷宗材料**不足以证明**李某某的经常居住地位于丰南区，确认路南区法院对本案具有管辖权。
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <span class="date">一审</span>
-                    <span class="description"><span class="status status-ongoing">一审已开庭</span>部分胜诉。一审因为本人没有出庭，判决书很多事实错误，法律适用错误，程序违法。</span>
-                </div>
-                <div class="timeline-item">
-                    <span class="date">二审</span>
-                    <span class="description"><span class="status status-ongoing">二审已开庭</span>维持原判，主要由于一审律师未充分了解案情，未授权的自认，已起诉该律师事务所。</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="case-section">
-            <h2><i class="fas fa-globe-europe"></i> 俄罗斯联邦境内诉讼（被告李某某）</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <span class="date">2024年至今</span>
-                    <span class="description"><span class="status status-procedural">刑事程序</span>保密</span>
-                    <div class="evidence-box">
-                        <strong>保密</strong>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <span class="date">2025年7月24日</span>
-                    <span class="description"><span class="status status-defeat">一审败诉</span>叶卡捷琳堡基洛夫斯基区法院就人身伤害民事索赔案作出一审判决，驳回原告诉讼请求。</span>
-                    <div class="evidence-box">
-                        <strong>败诉核心原因:</strong> 因原告提交的领事馆通话录音等关键证据，**不符合俄罗斯法律关于外国司法文书认证的程序性要求**（如缺乏签章、公证翻译），法院未予采纳。
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <span class="date">2025年8月</span>
-                    <span class="description"><span class="status status-ongoing">提起上诉</span>原告已向斯维尔德洛夫斯克州法院提起上诉，并提交了大量经公证认证的新证据。</span>
-                     <div class="evidence-box">
-                        <strong>核心新证据:</strong> 包括被告方核心盟友王某某亲口承认殴打（“我扇了他几次”）及非法限制自由（“不能放他走”）**的公证录音；以及被告李某某在俄罗斯警方与法庭上就双方**关系性质**作出完全相反陈述的官方记录。
-                        <strong>败诉</strong>法院认为证明不了被告行为和后果的直接因果关系。
-                    </div>
-                </div>
-            </div>
+        <div class="icon-wrapper">
+            <i class="fas fa-balance-scale"></i>
         </div>
         
-        <div class="footer-note">
-            本说明仅为对已发生司法程序事实的客观陈述，不包含任何评论或新的指控。所有信息均基于公开的法律文书。
-        </div>
+        <h1>全部案件都在法律程序处理中...</h1>
+        
+        <div class="divider"></div>
+        
+        <p>谢谢大家的关心。</p>
     </div>
+
 </body>
 </html>
